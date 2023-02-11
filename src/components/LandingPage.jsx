@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 // import data from "../data/data.json";
 import Searchbar from "./Searchbar";
 import profile from "../assets/profile.png";
@@ -8,6 +8,7 @@ import Map from "./Map";
 // import { useState } from "react";
 import Dogs from "./Dogs";
 import Parks from "./Parks";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
   // const [dogs, setDogs] = useState([]);
@@ -32,13 +33,34 @@ const LandingPage = () => {
   // const dogs = data.dogs;
   // const parks = data.parks;
   // const navigate = useNavigate();
+
+  const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    setMenu(!menu);
+    navigate("/signin");
+  };
   return (
     <div className="bg-white h-screen p-5 justify-between">
       <div className="flex items-center">
         <div className="w-full">
           <Searchbar />
         </div>
-        <img src={profile} alt="" className="w-14 h-14" />
+        <img
+          src={profile}
+          alt=""
+          className="w-14 h-14"
+          onClick={() => setMenu(!menu)}
+        />
+        {menu && (
+          <div
+            className="absolute right-6 top-24 bg-gray-400/50 p-5 rounded-lg"
+            onClick={() => handleClick()}
+          >
+            <h5>Sign out</h5>
+          </div>
+        )}
       </div>
       <div className="mt-10">
         <div className="text-[#344E41] text-left font-bold mb-5">

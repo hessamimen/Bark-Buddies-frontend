@@ -22,7 +22,7 @@ export const DogInfo = () => {
   }, []);
 
   return (
-    <div className="pt-2 bg-white h-screen gap-4 flex flex-col items-center">
+    <div className="pt-2 bg-white h-screen gap-4 flex flex-col items-center ">
       <div className="flex w-screen p-1 items-center justify-between">
         <div>
           <BsFillArrowLeftSquareFill
@@ -61,7 +61,7 @@ export const DogInfo = () => {
         </div>
         <div className="text-left mt-5">
           <h3 className="text-[#344E41] text-left font-bold mb-5">
-            OTHER RECOMMENDED BODDIES
+            OTHER RECOMMENDED BUDDIES
           </h3>
           <Dogs />
         </div>
